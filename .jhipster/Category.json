@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "category",
+            "otherEntityName": "category",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "parentCategory",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "category"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "productCategory",
+            "relationshipName": "productCategoryRel",
+            "otherEntityName": "product",
+            "otherEntityField": "childProduct",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "categoryName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180112154808",
+    "entityTableName": "category",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
