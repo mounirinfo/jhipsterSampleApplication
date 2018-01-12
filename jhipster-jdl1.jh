@@ -1,0 +1,32 @@
+
+entity Category {
+	categoryName String
+}
+
+entity Product{
+	productId String
+	productName String
+}
+
+entity Price {
+	startDate Instant,
+    endDate Instant
+}
+
+relationship OneToMany{
+	Category{parentCategory} to Category
+}
+
+relationship ManyToMany{
+	Category{productCategoryRel(childProduct)} to Product{productCategory}
+}
+
+relationship OneToMany{
+ Price{product} to Product
+}
+
+// Set pagination options
+paginate Price, Product with infinite-scroll
+paginate Category with pagination
+
+dto * with mapstruct
